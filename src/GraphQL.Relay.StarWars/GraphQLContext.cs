@@ -1,27 +1,22 @@
-
-
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using DataLoader;
 using GraphQL.Relay.StarWars.Api;
 using GraphQL.Types;
+using System.Collections.Generic;
 
 namespace GraphQL.Relay.StarWars
 {
-    public class GraphQLContext
+    public class GraphQLContext : Dictionary<string, object>
     {
-      public Swapi Api { get; }
-      public GraphQLContext(Swapi api)
-      {
-        Api = api;
-      }
+        public Swapi Api { get; }
+        public GraphQLContext(Swapi api)
+        {
+            Api = api;
+        }
     }
 
     public static class GraphQLUserContextExtensions
     {
-        public static Swapi Api<TSource>(this ResolveFieldContext<TSource> context) {
+        public static Swapi Api<TSource>(this ResolveFieldContext<TSource> context)
+        {
             return ((GraphQLContext)context.UserContext).Api;
         }
 

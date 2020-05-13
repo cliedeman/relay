@@ -1,13 +1,12 @@
+using GraphQL.Relay.StarWars.Utilities;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Serialization;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
-using DataLoader;
-using GraphQL.Relay.StarWars.Utilities;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Serialization;
 
 namespace GraphQL.Relay.StarWars.Api
 {
@@ -15,7 +14,7 @@ namespace GraphQL.Relay.StarWars.Api
   {
     private readonly HttpClient _client;
 
-    private string _apiBase = "http://swapi.co/api";
+    private const string _apiBase = "http://swapi.co/api";
     private ResponseCache _cache = new ResponseCache();
 
 
